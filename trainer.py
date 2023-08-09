@@ -13,10 +13,13 @@ class Trainer:
 		log_dir: directory to store all running utilities (logs, checkpoints, etc.)	
 
 	"""
-	def __init__(self, log_dir: str, model: nn.Module, datamodule: Datamodule) -> None:
+	def __init__(self, log_dir: str, model: nn.Module, datamodule: DataModule) -> None:
 		self.log_dir = log_dir
 		self.model = model
 		self.datamodule = datamodule
+	
+	def fit(self):
+		pass
 		
 
 def configure_parser():
