@@ -20,6 +20,9 @@ class Trainer:
 	
 	def fit(self):
 		pass
+
+	def fit_step(self):
+		raise NotImplementedError
 		
 
 def configure_parser():
