@@ -5,6 +5,7 @@ import accelerate
 import jsonargparse
 import os
 from datamodule import DataModule
+from typing import Union, Dict, Any
 
 
 class Trainer:
@@ -21,9 +22,36 @@ class Trainer:
 	def fit(self):
 		pass
 
-	def fit_step(self):
+	def train_step(self, batch: Any, batch_idx: int) -> Union[Tensor, Dict[str, Any]]:
+		"""
+		Args: 
+		batch: a batch of training data
+		batch_idx: batch index 
+		Return:
+			A tensor of Loss or a dictionary containing a 'loss' key and other keys
+		"""
 		raise NotImplementedError
 		
+	def val_step(self, batch: Any, batch_idx: int) -> Any:
+		"""
+		Args: 
+		batch: a batch of validation data
+		batch_idx: batch index 
+		Return:
+			Anything (metrics, results) you want to return during validation
+		"""
+		raise NotImplementedError
+
+	def test_step(self, batch: Any, batch_idx: int) -> Any:
+		"""
+		Args: 
+		batch: a batch of test data
+		batch_idx: batch index 
+		Return:
+			Anything (metrics, results) you want to return during testing
+		"""
+		raise NotImplementedError
+
 
 def configure_parser():
 	parser = jsonargparse.ArgumentParser()
