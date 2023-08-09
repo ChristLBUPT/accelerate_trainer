@@ -1,8 +1,13 @@
 import torch
 from torch import nn, tensor, Tensor
+from torch.utils.data import Dataset, DataLoader
 import accelerate
 import jsonargparse
 import os
+
+class DataModule:
+	def __init__(self, dataset: Dataset):
+		self.dataset = dataset
 
 class Trainer:
 	"""
@@ -13,6 +18,7 @@ class Trainer:
 	"""
 	def __init__(self, log_dir: str, ) -> None:
 		self.log_dir = log_dir
+		
 		pass
 
 def configure_parser():
