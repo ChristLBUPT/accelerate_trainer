@@ -4,16 +4,13 @@ from torch.utils.data import Dataset, DataLoader
 import accelerate
 import jsonargparse
 import os
+from datamodule import DataModule
 
-class DataModule:
-	def __init__(self, dataset: Dataset):
-		self.dataset = dataset
 
 class Trainer:
 	"""
 	Args:
 		log_dir: directory to store all running utilities (logs, checkpoints, etc.)	
-
 
 	"""
 	def __init__(self, log_dir: str, ) -> None:
